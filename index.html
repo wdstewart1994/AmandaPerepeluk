@@ -1,9 +1,455 @@
-<!doctype html>
-<html>
-  <head>
-    <title>This is the title of the webpage!</title>
-  </head>
-  <body>
-    <p>This is an example paragraph. Anything in the <strong>body</strong> tag will appear on the page, just like this <strong>p</strong> tag and its contents.</p>
-  </body>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amanda Perepeluk | Electrical Engineering</title>
+    <style>
+        :root {
+            --primary: #2a6496;
+            --secondary: #f8f9fa;
+            --dark: #333;
+            --light: #fff;
+            --accent: #ffc107;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+            background-color: var(--secondary);
+        }
+        
+        header {
+            background-color: var(--primary);
+            color: var(--light);
+            text-align: center;
+            padding: 2rem 0;
+        }
+        
+        nav {
+            background-color: var(--dark);
+            padding: 1rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        nav ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+        }
+        
+        nav li {
+            margin: 0 1rem;
+        }
+        
+        nav a {
+            color: var(--light);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        nav a:hover {
+            color: var(--accent);
+        }
+        
+        section {
+            padding: 3rem 1rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        h1, h2, h3 {
+            margin-bottom: 1rem;
+        }
+        
+        .hero-image {
+            background-color: #ddd;
+            height: 300px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .project-card {
+            background-color: var(--light);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+        
+        .project-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .project-image {
+            height: 200px;
+            background-color: #eee;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .project-content {
+            padding: 1.5rem;
+        }
+        
+        .skills-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+        
+        .skill-tag {
+            background-color: var(--primary);
+            color: var(--light);
+            padding: 0.25rem 0.75rem;
+            border-radius: 50px;
+            font-size: 0.9rem;
+        }
+        
+        footer {
+            background-color: var(--dark);
+            color: var(--light);
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: 2rem;
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        
+        .social-links a {
+            color: var(--light);
+            font-size: 1.5rem;
+            transition: color 0.3s;
+        }
+        
+        .social-links a:hover {
+            color: var(--accent);
+        }
+        
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .form-group {
+            margin-bottom: 1rem;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+        
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-family: inherit;
+        }
+        
+        .form-group textarea {
+            min-height: 150px;
+        }
+        
+        button {
+            background-color: var(--primary);
+            color: var(--light);
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: background-color 0.3s;
+        }
+        
+        button:hover {
+            background-color: #1a4971;
+        }
+        
+        @media (max-width: 768px) {
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            nav li {
+                margin: 0.5rem 0;
+            }
+            
+            .project-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Amanda Perepeluk</h1>
+        <p>Electrical Engineering Student</p>
+    </header>
+    
+    <nav>
+        <ul>
+            <li><a href="#about">About</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#resume">Resume</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+    
+    <section id="about">
+        <h2>About Me</h2>
+        <div class="hero-image">
+            <p>[Your profile photo here]</p>
+        </div>
+        <p style="margin-top: 2rem;">
+            Hello! I'm Amanda Perepeluk, an electrical engineering student passionate about [your specific interests, e.g., power systems, embedded systems, signal processing]. 
+            I'm currently pursuing my degree at [Your University], where I'm developing the technical skills and knowledge to solve complex engineering challenges.
+        </p>
+        <p style="margin-top: 1rem;">
+            My engineering journey began when [brief story about what sparked your interest in electrical engineering]. Since then, 
+            I've been involved in various projects and coursework that have strengthened my understanding of electrical engineering principles and applications.
+        </p>
+        <p style="margin-top: 1rem;">
+            Outside of my academic pursuits, I enjoy [your hobbies or interests], which help me maintain a balanced lifestyle and often provide fresh perspectives on technical problems.
+        </p>
+    </section>
+    
+    <section id="projects">
+        <h2>Projects</h2>
+        <p>Here are some of the projects I've worked on during my academic journey:</p>
+        
+        <div class="project-grid">
+            <div class="project-card">
+                <div class="project-image">
+                    <p>[Project image]</p>
+                </div>
+                <div class="project-content">
+                    <h3>Automated Solar Tracking System</h3>
+                    <p>Designed and implemented a dual-axis solar tracker that optimizes energy collection by following the sun's position throughout the day.</p>
+                    <div class="skills-list">
+                        <span class="skill-tag">Arduino</span>
+                        <span class="skill-tag">Sensors</span>
+                        <span class="skill-tag">Solar Energy</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="project-card">
+                <div class="project-image">
+                    <p>[Project image]</p>
+                </div>
+                <div class="project-content">
+                    <h3>Smart Home Energy Monitor</h3>
+                    <p>Created a system that tracks household electricity usage in real-time and provides analytics to help reduce energy consumption.</p>
+                    <div class="skills-list">
+                        <span class="skill-tag">IoT</span>
+                        <span class="skill-tag">PCB Design</span>
+                        <span class="skill-tag">Data Analysis</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="project-card">
+                <div class="project-image">
+                    <p>[Project image]</p>
+                </div>
+                <div class="project-content">
+                    <h3>Digital Signal Processing Algorithm</h3>
+                    <p>Developed an efficient algorithm for noise reduction in audio signals, improving clarity for speech recognition applications.</p>
+                    <div class="skills-list">
+                        <span class="skill-tag">MATLAB</span>
+                        <span class="skill-tag">DSP</span>
+                        <span class="skill-tag">Algorithm Design</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="skills">
+        <h2>Skills & Expertise</h2>
+        
+        <h3>Technical Skills</h3>
+        <div class="skills-list">
+            <span class="skill-tag">Circuit Design</span>
+            <span class="skill-tag">PCB Layout</span>
+            <span class="skill-tag">Microcontrollers</span>
+            <span class="skill-tag">Embedded Systems</span>
+            <span class="skill-tag">Power Electronics</span>
+            <span class="skill-tag">Signal Processing</span>
+            <span class="skill-tag">Control Systems</span>
+        </div>
+        
+        <h3 style="margin-top: 2rem;">Software & Programming</h3>
+        <div class="skills-list">
+            <span class="skill-tag">C/C++</span>
+            <span class="skill-tag">Python</span>
+            <span class="skill-tag">MATLAB</span>
+            <span class="skill-tag">Verilog/VHDL</span>
+            <span class="skill-tag">LTspice</span>
+            <span class="skill-tag">Altium Designer</span>
+            <span class="skill-tag">Arduino</span>
+        </div>
+        
+        <h3 style="margin-top: 2rem;">Soft Skills</h3>
+        <div class="skills-list">
+            <span class="skill-tag">Problem Solving</span>
+            <span class="skill-tag">Project Management</span>
+            <span class="skill-tag">Team Collaboration</span>
+            <span class="skill-tag">Technical Writing</span>
+            <span class="skill-tag">Research</span>
+        </div>
+    </section>
+    
+    <section id="resume">
+        <h2>Resume</h2>
+        <p>You can download my full resume using the link below:</p>
+        <button style="margin-top: 1rem;">Download Resume (PDF)</button>
+        
+        <h3 style="margin-top: 2rem;">Education</h3>
+        <div style="margin-top: 1rem;">
+            <h4>Bachelor of Science in Electrical Engineering</h4>
+            <p>[Your University], Expected Graduation: [Year]</p>
+            <p>GPA: [Your GPA]/4.0</p>
+            <p>Relevant Coursework: Power Systems, Digital Signal Processing, Control Systems, Embedded Systems Design, Electronics</p>
+        </div>
+        
+        <h3 style="margin-top: 2rem;">Experience</h3>
+        <div style="margin-top: 1rem;">
+            <h4>Engineering Intern</h4>
+            <p>[Company Name] - [Location]</p>
+            <p>[Start Date] - [End Date]</p>
+            <ul style="margin-left: 2rem; margin-top: 0.5rem;">
+                <li>Assisted in the design and testing of [specific project or system]</li>
+                <li>Conducted data analysis to improve [specific process or system]</li>
+                <li>Collaborated with cross-functional teams to implement [specific innovation or improvement]</li>
+            </ul>
+        </div>
+        
+        <div style="margin-top: 1.5rem;">
+            <h4>Research Assistant</h4>
+            <p>[University or Lab Name] - [Location]</p>
+            <p>[Start Date] - [End Date]</p>
+            <ul style="margin-left: 2rem; margin-top: 0.5rem;">
+                <li>Contributed to research on [specific topic or technology]</li>
+                <li>Developed and tested [specific component or system]</li>
+                <li>Published findings in [specific journal or conference]</li>
+            </ul>
+        </div>
+    </section>
+    
+    <section id="contact">
+        <h2>Contact Me</h2>
+        <p>I'm always open to discussing new projects, opportunities, or just chatting about electrical engineering topics.</p>
+        
+        <div class="contact-form">
+            <form>
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="subject">Subject</label>
+                    <input type="text" id="subject" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea id="message" required></textarea>
+                </div>
+                
+                <button type="submit">Send Message</button>
+            </form>
+        </div>
+        
+        <div style="text-align: center; margin-top: 2rem;">
+            <p>Email: your.email@example.com</p>
+            <p>LinkedIn: linkedin.com/in/amandaperepeluk</p>
+            <p>GitHub: github.com/amandaperepeluk</p>
+        </div>
+    </section>
+    
+    <footer>
+        <p>&copy; 2025 Amanda Perepeluk. All Rights Reserved.</p>
+        <div class="social-links">
+            <a href="#" aria-label="LinkedIn">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+                    <rect x="2" y="9" width="4" height="12"></rect>
+                    <circle cx="4" cy="4" r="2"></circle>
+                </svg>
+            </a>
+            <a href="#" aria-label="GitHub">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+                </svg>
+            </a>
+            <a href="#" aria-label="Email">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                    <polyline points="22,6 12,13 2,6"></polyline>
+                </svg>
+            </a>
+        </div>
+    </footer>
+
+    <script>
+        // Add smooth scrolling for navigation
+        document.querySelectorAll('nav a').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                window.scrollTo({
+                    top: targetElement.offsetTop - 70,
+                    behavior: 'smooth'
+                });
+            });
+        });
+        
+        // Basic form handling (you'll need backend integration for actual functionality)
+        document.querySelector('form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you for your message! This is a frontend demo - in a real implementation, this would send data to a backend service.');
+        });
+    </script>
+</body>
 </html>
